@@ -1,0 +1,35 @@
+#These code use to check remote ip status, it check three points: ip connection, port connection and password.
+#and add these machines into ansible agent.
+#
+#The newest update time:	2017-02-28
+#Author:					Sun Yuxiang
+#
+#Usage: 
+#First, change permission of login.exp
+#
+#1.	[root@Ans-Server IPMC]# chmod +x login.exp 
+#
+#
+#Second, check the xls files doesn't exist or not. If no, upload the xls files. Change the order of excel column if neccessary.
+##Or, use constant "passwd" and "port" variable, modify the "passwd" and "port" variable in main.py, and put remote ip into iplist file.
+#
+#
+#Third, execute "python main.py" to proccess.
+#
+#2.	[root@Ans-Server IPMC]# python main.py
+#
+#
+#Result:
+#Produce ip_disconnect, ip_can_connect_no_port, ip_no_passwd, inventory four files if exist corresponding result.
+#
+#ip_disconnect: The remote ip can NOT receive ping respond.
+#
+#ip_can_connect_no_port: The remote ip can receive ping respond, but it can NOT establish connection with specified port.
+#
+#ip_no_passwd: The remote ip can receive ping respond and can establish connection with specified port, but the login password is WRONG.
+#
+#inventory: The remote ip can ssh login, and create ssh no password login successfully.
+#
+#
+#
+#

@@ -1,0 +1,18 @@
+#!/usr/bin/expect -f
+
+##set ssh no password login
+##REMEMBER which pub needs to distribute
+
+set timeout 5
+set ip [lindex $argv 0]
+set passwd [lindex $argv 1]
+spawn ssh-copy-id $ip -i ~/.ssh/id_rsa.pub
+#spawn ssh-copy-id $ip -i ~/.ssh/ansible-inner.pub
+#spawn ssh-copy-id $ip -i ~/.ssh/ansible-dmzin.pub
+#spawn ssh-copy-id $ip -i ~/.ssh/ansible-dmzwl.pub
+expect {	
+	"*password:" { send "$passwd\r" }
+}
+expect "#"
+
+
